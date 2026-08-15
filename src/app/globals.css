@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-page: #080808;
+    --fg-page: #F4F4F0;
+    --fg-muted: #8E8E8A;
+    --border-main: #333333;
+    --accent-lime: #CCFF00;
+    --accent-orange: #FF4D00;
+    --accent-blue: #0047FF;
+  }
+
+  .light {
+    --bg-page: #F4F4F0;
+    --fg-page: #080808;
+    --fg-muted: #666660;
+    --border-main: #000000;
+    --accent-lime: #CCFF00;
+    --accent-orange: #FF4D00;
+    --accent-blue: #0047FF;
+  }
+
+  * {
+    border-color: var(--border-main);
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--fg-page);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+    selection-background-color: var(--accent-lime);
+    selection-color: #000000;
+  }
+
+  ::selection {
+    background: #CCFF00;
+    color: #000000;
+  }
+}
+
+/* Brutalist Custom Grid Background */
+.bg-brutal-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+.light .bg-brutal-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+}
+
+/* Dot matrix pattern */
+.bg-dot-matrix {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.light .bg-dot-matrix {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+}
+
+/* Subtle Film Grain Noise */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Brutalist Scanlines */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+}
+
+/* Brutalist Button Utility */
+.btn-brutal-lime {
+  @apply bg-brutal-lime text-black font-mono font-bold uppercase px-6 py-3 border-2 border-black dark:border-white shadow-brutal hover:shadow-brutal-lg active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 flex items-center justify-center gap-2 tracking-wider;
+}
+
+.btn-brutal-black {
+  @apply bg-brutal-black text-brutal-white font-mono font-bold uppercase px-6 py-3 border-2 border-white shadow-brutal-white hover:bg-white hover:text-black active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 flex items-center justify-center gap-2 tracking-wider;
+}
+
+.btn-brutal-white {
+  @apply bg-white text-black font-mono font-bold uppercase px-6 py-3 border-2 border-black shadow-brutal hover:bg-brutal-lime active:translate-x-1 active:translate-y-1 active:shadow-none transition-all duration-150 flex items-center justify-center gap-2 tracking-wider;
+}
+
+.btn-brutal-outline {
+  @apply bg-transparent text-current font-mono font-bold uppercase px-6 py-3 border-2 border-current hover:bg-current hover:text-black dark:hover:text-black transition-all duration-150 flex items-center justify-center gap-2 tracking-wider;
+}
+
+/* Brutalist Card Hard Shadow */
+.card-brutal {
+  @apply border-2 border-neutral-800 dark:border-neutral-700 bg-neutral-950 dark:bg-[#111111] transition-all duration-200;
+}
+
+.card-brutal-pop {
+  @apply border-2 border-black dark:border-white bg-neutral-900 dark:bg-black shadow-brutal dark:shadow-brutal-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-lg dark:hover:shadow-brutal-white-lg transition-all duration-200;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+  border-left: 2px solid #222222;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #F4F4F0;
+  border-left: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CCFF00;
+  border: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF4D00;
+}
+
+/* Horizontal Scroll Container Utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Kinetic Marquee Keyframes */
+@keyframes marquee-infinite {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-infinite 28s linear infinite;
+}
+
+.animate-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverse-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-infinite 32s linear infinite reverse;
+}
+
+.animate-marquee-reverse-track:hover {
+  animation-play-state: paused;
+}
+
+/* Corner crosshair registration helper */
+.corner-crosshair {
+  position: relative;
+}
+.corner-crosshair::before {
+  content: "+";
+  position: absolute;
+  top: -8px;
+  left: -6px;
+  font-family: var(--font-space-mono);
+  font-size: 14px;
+  color: #888888;
+  line-height: 1;
+  pointer-events: none;
+}
+.corner-crosshair::after {
+  content: "+";
+  position: absolute;
+  bottom: -8px;
+  right: -6px;
+  font-family: var(--font-space-mono);
+  font-size: 14px;
+  color: #888888;
+  line-height: 1;
+  pointer-events: none;
+}
