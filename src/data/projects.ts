@@ -91,7 +91,7 @@ export const PROJECTS: Project[] = [
     deliverables: ['Headless Shopify Storefront', 'Micro-drop Queue System', 'Editorial Video Catwalk', 'Brutalist Checkout Flow'],
     stack: ['Next.js 15', 'Shopify Storefront API', 'Framer Motion', 'Edge Functions', 'Tailwind'],
     awards: ['Awwwards Site of the Year Nominee', 'CSSDA Special Kudos'],
-    heroImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb18015f6?q=80&w=1600&auto=format&fit=crop',
+    heroImage: 'https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=1600&auto=format&fit=crop',
     secondaryImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1000&auto=format&fit=crop',
     accentColor: '#FF2E93',
     liveUrl: 'https://nero-atelier.example',
